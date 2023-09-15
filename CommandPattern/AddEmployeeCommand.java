@@ -14,5 +14,18 @@ class AddEmployeeCommand implements Command {
         db.addEmployee(employeeId, name, accountNumber);
         db.setSalary(employeeId, salary);
    }
+
+   //Factory
+   public static Command parse(String[] parts) {
+        try {
+            var employeeNumber = Utils.toInt(parts[1]);
+            var name = parts[2];
+            var salary = Utils.toDouble(parts[3]);
+            var accountNumber = parts[4];
+            return new AddEmployeeCommand(employeeNumber, name, accountNumber, salary);
+        } catch (Exception e) {
+            return IllegalCommand.parse(parts);
+        }
+    }
 }
 

@@ -4,7 +4,7 @@ class CommandParser {
         var parts = cmd.split(",");
         return
             switch (parts[0]) {
-            case "add" -> AddEmployeeCommand.parse(parts);
+            case "add" -> AddEmployeeCommand.parse(parts); //Static factory-method in AddEmployeeCommand
             default -> IllegalCommand.parse(parts);
     }
 }
