@@ -10,10 +10,9 @@ class AddEmployeeCommand implements Command {
         this.salary = salary;
     }
 
-    public void execute(){
-        
-    }
-
-
-
+    public void execute(Database db, PaymentSystem ps){
+        db.addEmployee(employeeId, name, accountNumber);
+        db.setSalary(employeeId, salary);
+   }
 }
+
