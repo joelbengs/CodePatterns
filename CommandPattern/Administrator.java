@@ -4,7 +4,7 @@ class Administrator {
         new Administrator.run();
     }
 
-    public void run(){
+    void run(){
         process(new MockDatabase(), new MockPaymentSystem());
     }
 
